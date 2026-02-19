@@ -1,5 +1,5 @@
 #!/bin/bash
-# convert_merkle_proof.sh
+
 set -e
 
 echo "=== PREPARO PROOF MERKLE TREE ==="
@@ -7,7 +7,7 @@ echo ""
 
 # 1. Verifica file
 if [ ! -f "target/proof" ] || [ ! -f "target/public_inputs" ]; then
-    echo "❌ File mancanti!"
+    echo " File mancanti!"
     exit 1
 fi
 
@@ -26,7 +26,7 @@ NUM_INPUTS=$((PUBLIC_INPUTS_SIZE / 32))
 echo "    Public inputs: $NUM_INPUTS elemento(i)"
 
 if [ $NUM_INPUTS -ne 1 ]; then
-    echo "⚠️  Warning: Expected 1 input (merkle root), got $NUM_INPUTS"
+    echo "  Warning: Expected 1 input (merkle root), got $NUM_INPUTS"
 fi
 
 # 4. Estrai root (BIG-ENDIAN)
@@ -43,7 +43,7 @@ fi
 
 # 5. Visualizza info
 echo ""
-echo "📋 Merkle Tree Proof Info:"
+echo " Merkle Tree Proof Info:"
 echo ""
 echo "    Public Input (Merkle Root):"
 echo "    • Hex: $ROOT_HEX"
@@ -60,7 +60,7 @@ echo "$PUBLIC_INPUTS_JSON" > target/public_inputs_array.txt
 # 8. Output
 echo ""
 echo "════════════════════════════════════════════════════════"
-echo "✅ Parametri per verify(bytes _proof, bytes32[] _publicInputs)"
+echo " Parametri per verify(bytes _proof, bytes32[] _publicInputs)"
 echo "════════════════════════════════════════════════════════"
 echo ""
 echo "Proof size: $(echo "scale=2; $PROOF_SIZE / 1024" | bc) KB"
@@ -75,11 +75,3 @@ echo "  - target/proof_hex.txt"
 echo "  - target/public_inputs_array.txt"
 echo ""
 
-# 9. Info aggiuntive
-echo "📊 Merkle Tree Info:"
-echo "  - Tree depth: 10 (da Prover.toml)"
-echo "  - Whitelist size: 1024 foglie"
-echo "  - Hash function: Blake2s"
-echo "  - Privacy: ✅ Leaf, path nascosti"
-echo "  - Public: ✅ Solo merkle root"
-echo ""

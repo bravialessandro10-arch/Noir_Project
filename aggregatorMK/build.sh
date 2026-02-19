@@ -59,7 +59,7 @@ STEP_START=$(date +%s%N)
 nargo execute
 STEP_END=$(date +%s%N)
 TIME_EXECUTE=$(time_diff $STEP_START $STEP_END)
-echo " Execute done in ${TIME_EXECUTE}s"
+echo "  Execute done in ${TIME_EXECUTE}s"
 echo ""
 
 # Step 6: Generate proof
@@ -68,7 +68,7 @@ STEP_START=$(date +%s%N)
 bb prove --scheme ultra_honk --verifier_target evm -b ./target/aggregatorMK.json -w ./target/aggregatorMK.gz -o ./target
 STEP_END=$(date +%s%N)
 TIME_PROVE=$(time_diff $STEP_START $STEP_END)
-echo " Proof generation done in ${TIME_PROVE}s"
+echo "Proof generation done in ${TIME_PROVE}s"
 echo ""
 
 # Calcola tempo totale

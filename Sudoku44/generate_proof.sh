@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🔨 Generazione Proof Sudoku 4×4 con Metriche"
+echo " Generazione Proof Sudoku 4×4 con Metriche"
 echo "============================================"
 
 # 1. Compila circuito
@@ -9,7 +9,7 @@ echo " Compilazione..."
 nargo compile
 
 if [ $? -ne 0 ]; then
-    echo "❌ Errore compilazione"
+    echo " Errore compilazione"
     exit 1
 fi
 
@@ -94,7 +94,7 @@ fi
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 echo "$TIMESTAMP,$VK_TIME,$VERIFIER_TIME,$WITNESS_TIME,$PROOF_TIME,$TOTAL_TIME,$PROOF_SIZE,$PROOF_KB,$VK_KB,$WITNESS_KB,$VERIFIER_KB" >> "$METRICS_FILE"
 
-echo "💾 Metriche salvate in: $METRICS_FILE"
+echo " Metriche salvate in: $METRICS_FILE"
 echo ""
 
 # 10. CREA REPORT TESTUALE
@@ -140,5 +140,5 @@ EOF
 
 echo " Report testuale salvato in: $REPORT_FILE"
 echo ""
-echo "GENERAZIONE COMPLETATA CON SUCCESSO!"
+echo " GENERAZIONE COMPLETATA CON SUCCESSO!"
 echo ""

@@ -14,7 +14,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # 2. Genera VK (con misurazione tempo)
-echo " Generazione verification key..."
+echo "🔑 Generazione verification key..."
 VK_START=$(date +%s%N)
 bb write_vk -b ./target/Sudoku99.json -o ./target --oracle_hash keccak
 VK_END=$(date +%s%N)
@@ -28,7 +28,7 @@ VERIFIER_END=$(date +%s%N)
 VERIFIER_TIME=$(echo "scale=3; ($VERIFIER_END - $VERIFIER_START) / 1000000000" | bc)
 
 # 4. Crea Prover.toml con problema 9×9
-echo "Generazione Prover.toml..."
+echo " Generazione Prover.toml..."
 cat > Prover.toml << 'EOF'
 # Problema 9×9 classico (0 = cella vuota)
 problema = [
@@ -65,7 +65,7 @@ WITNESS_END=$(date +%s%N)
 WITNESS_TIME=$(echo "scale=3; ($WITNESS_END - $WITNESS_START) / 1000000000" | bc)
 
 if [ $? -ne 0 ]; then
-    echo "❌ Errore esecuzione (soluzione non valida?)"
+    echo " Errore esecuzione (soluzione non valida?)"
     exit 1
 fi
 
@@ -93,6 +93,7 @@ VERIFIER_KB=$(echo "scale=2; $VERIFIER_SIZE / 1024" | bc)
 
 # Calcola tempo totale
 TOTAL_TIME=$(echo "scale=3; $VK_TIME + $WITNESS_TIME + $PROOF_TIME + $VERIFIER_TIME" | bc)
+
 
 
 # 9. SALVA METRICHE IN FILE CSV
@@ -149,7 +150,7 @@ CARATTERISTICHE CIRCUITO:
 ═══════════════════════════════════════════════════════════════
 EOF
 
-echo "Report testuale salvato in: $REPORT_FILE"
+echo " Report testuale salvato in: $REPORT_FILE"
 echo ""
 echo " GENERAZIONE COMPLETATA CON SUCCESSO!"
 echo ""

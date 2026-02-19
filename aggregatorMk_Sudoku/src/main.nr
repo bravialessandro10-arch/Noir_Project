@@ -37,21 +37,21 @@ fn main(
     public_inputs_16x16: pub [Field; 256],
     key_hash_16x16: Field
 ) {
-    // Verify Depth 8 proof recursively (ZK)
+    // Verifica Depth 8 proof ricorsivamente (ZK)
     verify_honk_proof(vk_depth8, proof_depth8, public_inputs_depth8, key_hash_depth8);
 
-    // Verify Depth 10 proof recursively (ZK)
+    // Verifica Depth 10 proof ricorsivamente (ZK)
     verify_honk_proof(vk_depth16, proof_depth16, public_inputs_depth16, key_hash_depth16);
 
-    // Verify Depth 12 proof recursively (ZK)
+    // Verifica Depth 12 proof ricorsivamente (ZK)
     verify_honk_proof(vk_depth20, proof_depth20, public_inputs_depth20, key_hash_depth20);
 
-    // Verify 4x4 proof recursively (ZK)
+    // Verifica 4x4 proof ricorsivamente (ZK)
     verify_honk_proof(vk_4x4, proof_4x4, public_inputs_4x4, key_hash_4x4);
 
-    // Verify 9x9 proof recursively (ZK)
+    // Verifica 9x9 proof ricorsivamente (ZK)
     verify_honk_proof(vk_9x9, proof_9x9, public_inputs_9x9, key_hash_9x9);
  
-    // Verify 16x16 proof recursively (ZK)
+    // Verifica 16x16 proof ricorsivamente (ZK)
     verify_honk_proof(vk_16x16, proof_16x16, public_inputs_16x16, key_hash_16x16);
 }

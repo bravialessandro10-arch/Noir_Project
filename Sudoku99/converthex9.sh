@@ -53,7 +53,7 @@ done
 # 5. Visualizza matrice 9×9
 if [ $NUM_INPUTS -eq 81 ]; then
     echo ""
-    echo "📋 Matrice Sudoku 9×9:"
+    echo "Matrice Sudoku 9×9:"
     echo ""
     for row in {0..8}; do
         printf "    "

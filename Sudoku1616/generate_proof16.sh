@@ -28,7 +28,7 @@ VERIFIER_END=$(date +%s%N)
 VERIFIER_TIME=$(echo "scale=3; ($VERIFIER_END - $VERIFIER_START) / 1000000000" | bc)
 
 # 4. Crea Prover.toml con problema 16×16
-echo "📝 Generazione Prover.toml..."
+echo " Generazione Prover.toml..."
 cat > Prover.toml << 'EOF'
 # Problema 16×16 (0 = cella vuota)
 # Problema con ~50% celle vuote
@@ -80,7 +80,7 @@ WITNESS_END=$(date +%s%N)
 WITNESS_TIME=$(echo "scale=3; ($WITNESS_END - $WITNESS_START) / 1000000000" | bc)
 
 if [ $? -ne 0 ]; then
-    echo "❌ Errore esecuzione (soluzione non valida?)"
+    echo " Errore esecuzione (soluzione non valida?)"
     exit 1
 fi
 

@@ -21,7 +21,7 @@ STEP_START=$(date +%s%N)
 nargo compile
 STEP_END=$(date +%s%N)
 TIME_COMPILE=$(time_diff $STEP_START $STEP_END)
-echo "✅ Compile done in ${TIME_COMPILE}s"
+echo " Compile done in ${TIME_COMPILE}s"
 echo ""
 
 # Step 2: Generate VK
@@ -30,7 +30,7 @@ STEP_START=$(date +%s%N)
 bb write_vk --verifier_target evm -b ./target/aggregatorMk_Sudoku.json -o ./target
 STEP_END=$(date +%s%N)
 TIME_VK=$(time_diff $STEP_START $STEP_END)
-echo "✅ VK generation done in ${TIME_VK}s"
+echo " VK generation done in ${TIME_VK}s"
 echo ""
 
 # Step 3: Generate Solidity verifier
@@ -39,7 +39,7 @@ STEP_START=$(date +%s%N)
 bb write_solidity_verifier --verifier_target evm -k ./target/vk -o ./target/VerifierAggregatorMk_Sudoku.sol
 STEP_END=$(date +%s%N)
 TIME_VERIFIER=$(time_diff $STEP_START $STEP_END)
-echo "✅ Verifier generation done in ${TIME_VERIFIER}s"
+echo " Verifier generation done in ${TIME_VERIFIER}s"
 echo ""
 
 # Step 4: Generate Prover.toml with JS
@@ -50,7 +50,7 @@ node scripts/genera_proofaggregataMk_Sudoku.js
 cd ../aggregatorMk_Sudoku
 STEP_END=$(date +%s%N)
 TIME_PROVER_TOML=$(time_diff $STEP_START $STEP_END)
-echo "✅ Prover.toml generation done in ${TIME_PROVER_TOML}s"
+echo " Prover.toml generation done in ${TIME_PROVER_TOML}s"
 echo ""
 
 # Step 5: Execute circuit
@@ -59,7 +59,7 @@ STEP_START=$(date +%s%N)
 nargo execute
 STEP_END=$(date +%s%N)
 TIME_EXECUTE=$(time_diff $STEP_START $STEP_END)
-echo "✅ Execute done in ${TIME_EXECUTE}s"
+echo " Execute done in ${TIME_EXECUTE}s"
 echo ""
 
 # Step 6: Generate proof
@@ -68,7 +68,7 @@ STEP_START=$(date +%s%N)
 bb prove --scheme ultra_honk --verifier_target evm -b ./target/aggregatorMk_Sudoku.json -w ./target/aggregatorMk_Sudoku.gz -o ./target
 STEP_END=$(date +%s%N)
 TIME_PROVE=$(time_diff $STEP_START $STEP_END)
-echo "✅ Proof generation done in ${TIME_PROVE}s"
+echo " Proof generation done in ${TIME_PROVE}s"
 echo ""
 
 # Calcola tempo totale

@@ -36,7 +36,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # 3. Genera Verifier Solidity
-echo "📜 Generazione Verifier.sol..."
+echo " Generazione Verifier.sol..."
 VERIFIER_START=$(date +%s%N)
 bb write_solidity_verifier -k ./target/vk -o ./target/VerifierMK20.sol
 VERIFIER_END=$(date +%s%N)
@@ -55,7 +55,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # 5. Genera proof (CON MISURAZIONE PRECISA)
-echo "🔐 Generazione proof..."
+echo " Generazione proof..."
 PROOF_START=$(date +%s%N)
 bb prove -b ./target/merkle_depth20.json \
     -w ./target/merkle_depth20.gz \
@@ -65,7 +65,7 @@ PROOF_END=$(date +%s%N)
 PROOF_TIME=$(echo "scale=3; ($PROOF_END - $PROOF_START) / 1000000000" | bc)
 
 if [ $? -ne 0 ]; then
-    echo "❌ Errore generazione proof"
+    echo " Errore generazione proof"
     exit 1
 fi
 
@@ -96,7 +96,7 @@ fi
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 echo "$TIMESTAMP,$DEPTH,$MAX_ELEMENTS,$COMPILE_TIME,$VK_TIME,$VERIFIER_TIME,$WITNESS_TIME,$PROOF_TIME,$TOTAL_TIME,$PROOF_SIZE,$PROOF_KB,$VK_KB,$WITNESS_KB,$VERIFIER_KB" >> "$METRICS_FILE"
 
-echo "💾 Metriche salvate in: $METRICS_FILE"
+echo " Metriche salvate in: $METRICS_FILE"
 echo ""
 
 # 9. CREA REPORT TESTUALE

@@ -6,7 +6,7 @@ echo ""
 
 # 1. Verifica file
 if [ ! -f "target/proof" ] || [ ! -f "target/public_inputs" ]; then
-    echo "❌ File mancanti!"
+    echo "File mancanti!"
     exit 1
 fi
 
@@ -74,15 +74,6 @@ PUBLIC_INPUTS_JSON+="]"
 echo "$PROOF_HEX" > target/proof_hex.txt
 echo "$PUBLIC_INPUTS_JSON" > target/public_inputs_array.txt
 
-# 8. Output
-echo ""
-echo "════════════════════════════════════════════════════════"
-echo " Parametri per verify(bytes _proof, bytes32[] _publicInputs)"
-echo "════════════════════════════════════════════════════════"
-echo ""
-echo "Proof (primi 100 char): ${PROOF_HEX:0:100}..."
-echo "Public inputs count: $NUM_INPUTS"
-echo ""
 echo "Files salvati:"
 echo "  - target/proof_hex.txt"
 echo "  - target/public_inputs_array.txt"

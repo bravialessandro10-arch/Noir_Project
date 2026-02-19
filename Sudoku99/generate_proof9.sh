@@ -5,30 +5,30 @@ echo "🔨 Generazione Proof Sudoku 9×9 con Metriche"
 echo "============================================"
 
 # 1. Compila circuito
-echo "📦 Compilazione..."
+echo " Compilazione..."
 nargo compile
 
 if [ $? -ne 0 ]; then
-    echo "❌ Errore compilazione"
+    echo " Errore compilazione"
     exit 1
 fi
 
 # 2. Genera VK (con misurazione tempo)
-echo "🔑 Generazione verification key..."
+echo " Generazione verification key..."
 VK_START=$(date +%s%N)
 bb write_vk -b ./target/Sudoku99.json -o ./target --oracle_hash keccak
 VK_END=$(date +%s%N)
 VK_TIME=$(echo "scale=3; ($VK_END - $VK_START) / 1000000000" | bc)
 
 # 3. Genera Verifier Solidity
-echo "📜 Generazione Verifier.sol..."
+echo " Generazione Verifier.sol..."
 VERIFIER_START=$(date +%s%N)
 bb write_solidity_verifier -k ./target/vk -o ./target/Verifier9.sol
 VERIFIER_END=$(date +%s%N)
 VERIFIER_TIME=$(echo "scale=3; ($VERIFIER_END - $VERIFIER_START) / 1000000000" | bc)
 
 # 4. Crea Prover.toml con problema 9×9
-echo "📝 Generazione Prover.toml..."
+echo "Generazione Prover.toml..."
 cat > Prover.toml << 'EOF'
 # Problema 9×9 classico (0 = cella vuota)
 problema = [
@@ -58,7 +58,7 @@ soluzione = [
 EOF
 
 # 5. Esegui circuito (genera witness con misurazione)
-echo "⚙️  Esecuzione circuito..."
+echo "  Esecuzione circuito..."
 WITNESS_START=$(date +%s%N)
 nargo execute
 WITNESS_END=$(date +%s%N)
@@ -70,7 +70,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # 6. Genera proof (CON MISURAZIONE PRECISA)
-echo "🔐 Generazione proof..."
+echo " Generazione proof..."
 PROOF_START=$(date +%s%N)
 bb prove -b ./target/Sudoku99.json \
     -w ./target/Sudoku99.gz \
@@ -94,38 +94,6 @@ VERIFIER_KB=$(echo "scale=2; $VERIFIER_SIZE / 1024" | bc)
 # Calcola tempo totale
 TOTAL_TIME=$(echo "scale=3; $VK_TIME + $WITNESS_TIME + $PROOF_TIME + $VERIFIER_TIME" | bc)
 
-# 8. REPORT DETTAGLIATO
-echo ""
-echo "════════════════════════════════════════════════════════════"
-echo "📊 REPORT METRICHE - SUDOKU 9×9"
-echo "════════════════════════════════════════════════════════════"
-echo ""
-echo "⏱️  TEMPI DI ESECUZIONE:"
-echo "   ┌─────────────────────────────────────────────────────┐"
-echo "   │ VK Generation:        ${VK_TIME}s                    │"
-echo "   │ Verifier Generation:  ${VERIFIER_TIME}s                    │"
-echo "   │ Witness Generation:   ${WITNESS_TIME}s                    │"
-echo "   │ ⭐ PROOF Generation:  ${PROOF_TIME}s ⭐             │"
-echo "   ├─────────────────────────────────────────────────────┤"
-echo "   │ TOTALE:               ${TOTAL_TIME}s                    │"
-echo "   └─────────────────────────────────────────────────────┘"
-echo ""
-echo "📦 DIMENSIONI FILE:"
-echo "   ┌─────────────────────────────────────────────────────┐"
-echo "   │ ⭐ Proof:             ${PROOF_KB} KB (${PROOF_SIZE} bytes) ⭐     │"
-echo "   │ Verification Key:     ${VK_KB} KB (${VK_SIZE} bytes)       │"
-echo "   │ Witness:              ${WITNESS_KB} KB (${WITNESS_SIZE} bytes)      │"
-echo "   │ Verifier.sol:         ${VERIFIER_KB} KB (${VERIFIER_SIZE} bytes)  │"
-echo "   └─────────────────────────────────────────────────────┘"
-echo ""
-echo "📈 CARATTERISTICHE CIRCUITO:"
-echo "   • Dimensione griglia:  9×9"
-echo "   • Celle totali:        81"
-echo "   • Public inputs:       81"
-echo "   • Blocchi 3×3:         9"
-echo "   • Range valori:        1-9"
-echo ""
-echo "════════════════════════════════════════════════════════════"
 
 # 9. SALVA METRICHE IN FILE CSV
 METRICS_FILE="./target/metrics_9x9.csv"
@@ -137,7 +105,7 @@ fi
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 echo "$TIMESTAMP,$VK_TIME,$VERIFIER_TIME,$WITNESS_TIME,$PROOF_TIME,$TOTAL_TIME,$PROOF_SIZE,$PROOF_KB,$VK_KB,$WITNESS_KB,$VERIFIER_KB" >> "$METRICS_FILE"
 
-echo "💾 Metriche salvate in: $METRICS_FILE"
+echo " Metriche salvate in: $METRICS_FILE"
 echo ""
 
 # 10. CREA REPORT TESTUALE
@@ -181,7 +149,7 @@ CARATTERISTICHE CIRCUITO:
 ═══════════════════════════════════════════════════════════════
 EOF
 
-echo "📄 Report testuale salvato in: $REPORT_FILE"
+echo "Report testuale salvato in: $REPORT_FILE"
 echo ""
-echo "✅ GENERAZIONE COMPLETATA CON SUCCESSO!"
+echo " GENERAZIONE COMPLETATA CON SUCCESSO!"
 echo ""

@@ -19,12 +19,12 @@ fn main(
     public_inputs_depth20: pub [Field; 1],  // Solo il root
     key_hash_depth20: Field
 ) {
-    // Verify Depth 8 proof recursively (ZK)
+    // Verifica Depth 8 proof ricorsivamente (ZK)
     verify_honk_proof(vk_depth8, proof_depth8, public_inputs_depth8, key_hash_depth8);
 
-    // Verify Depth 10 proof recursively (ZK)
+    // Verifica Depth 10 proof ricorsivamente (ZK)
     verify_honk_proof(vk_depth16, proof_depth16, public_inputs_depth16, key_hash_depth16);
 
-    // Verify Depth 12 proof recursively (ZK)
+    // Verifica Depth 12 proof ricorsivamente (ZK)
     verify_honk_proof(vk_depth20, proof_depth20, public_inputs_depth20, key_hash_depth20);
 }

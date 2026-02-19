@@ -1,0 +1,47 @@
+═══════════════════════════════════════════════════════════════
+MERKLE TREE DEPTH 8 - ZERO-KNOWLEDGE PROOF GENERATION REPORT
+═══════════════════════════════════════════════════════════════
+
+Data: 2026-01-29 10:36:05
+
+PARAMETRI CHIAVE (per tesi):
+─────────────────────────────────────────────────────────────
+- Tempo Generazione Proof:    .671s
+- Dimensione Proof:            8.43 KB (8640 bytes)
+
+BREAKDOWN COMPLETO:
+─────────────────────────────────────────────────────────────
+Tempi:
+  - Compilation:               .444s
+  - VK generation:             .303s
+  - Verifier generation:       .004s
+  - Witness generation:        .188s
+  - Proof generation:          .671s
+  - TOTALE:                    1.610s
+
+Dimensioni:
+  - Proof:                     8.43 KB
+  - Verification Key:          1.84 KB
+  - Witness (compressed):      29.69 KB
+  - Verifier.sol:              97.76 KB
+
+CARATTERISTICHE CIRCUITO:
+─────────────────────────────────────────────────────────────
+  - Tipo:                      Merkle Tree Membership
+  - Tree Depth:                8
+  - Max elementi:              256
+  - Public inputs:             1 (root)
+  - Private inputs:            17
+  - Hash function:             Blake2s (31 bytes output)
+  - Schema:                    UltraHonk
+  - Hash Oracle:               Keccak
+
+SCALABILITÀ:
+─────────────────────────────────────────────────────────────
+  - Depth 7:                   128 elementi
+  - Depth 8 (attuale):         256 elementi
+  - Depth 10:                  1,024 elementi
+  - Depth 12:                  4,096 elementi
+  - Depth 15:                  32,768 elementi
+
+═══════════════════════════════════════════════════════════════

@@ -19,7 +19,7 @@ fn main(
     public_inputs_16x16: pub [Field; 256],
     key_hash_16x16: Field
 ) {
-    // Verify 4x4 proof recursively (ZK)
+    // Verifica 4x4 proof recursively (ZK)
     verify_honk_proof(vk_4x4, proof_4x4, public_inputs_4x4, key_hash_4x4);
 
     // Verify 9x9 proof recursively (ZK)

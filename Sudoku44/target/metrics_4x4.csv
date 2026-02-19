@@ -1,0 +1,2 @@
+timestamp,vk_time,verifier_time,witness_time,proof_time,total_time,proof_size_bytes,proof_size_kb,vk_size_kb,witness_size_kb,verifier_size_kb
+2026-02-03 15:00:33,.101,.005,.147,.190,.443,7488,7.31,1.84,.91,97.75

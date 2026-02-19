@@ -1,15 +1,15 @@
 #!/bin/bash
 set -e
 
-echo "🔨 Generazione Proof Sudoku 16×16 con Metriche"
+echo " Generazione Proof Sudoku 16×16 con Metriche"
 echo "=============================================="
 
 # 1. Compila circuito
-echo "📦 Compilazione..."
+echo " Compilazione..."
 nargo compile
 
 if [ $? -ne 0 ]; then
-    echo "❌ Errore compilazione"
+    echo "Errore compilazione"
     exit 1
 fi
 
@@ -97,7 +97,6 @@ PROOF_END=$(date +%s%N)
 PROOF_TIME=$(echo "scale=3; ($PROOF_END - $PROOF_START) / 1000000000" | bc)
 
 # 7. MISURA DIMENSIONI FILE
-# Compatibile sia con macOS che Linux
 PROOF_SIZE=$(stat -f%z ./target/proof 2>/dev/null || stat -c%s ./target/proof)
 VK_SIZE=$(stat -f%z ./target/vk 2>/dev/null || stat -c%s ./target/vk)
 WITNESS_SIZE=$(stat -f%z ./target/Sudoku1616.gz 2>/dev/null || stat -c%s ./target/Sudoku1616.gz)
@@ -195,15 +194,11 @@ CARATTERISTICHE CIRCUITO:
   - Celle totali:              256
   - Public inputs:             256
   - Blocchi 4×4:               16
-  - Constraint (stima):        ~3,500
   - Schema:                    UltraHonk
   - Hash Oracle:               Keccak
 
 ═══════════════════════════════════════════════════════════════
 EOF
 
-echo "📄 Report testuale salvato in: $REPORT_FILE"
-echo ""
-echo "✅ GENERAZIONE COMPLETATA CON SUCCESSO!"
-echo ""
+echo " GENERAZIONE COMPLETATA CON SUCCESSO!"
 

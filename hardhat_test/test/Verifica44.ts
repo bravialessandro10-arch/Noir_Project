@@ -37,14 +37,17 @@ describe("HonkVerifier On-Chain Verification", function () {
     
     console.log("\n=== Gas Usage Report ===");
     console.log(`Gas per verifica proof: ${estimatedGas.toString()}`);
-    console.log("========================\n");
-    
-    // Chiama verify on-chain con proof e publicInputs
-    const result = await verifier.verify(proof, publicInputs);
 
-    
+    // Misurazione tempo di verifica
+    const startTime = Date.now();
+    const result = await verifier.verify(proof, publicInputs);
+    const endTime = Date.now();
+    const verificationTime = endTime - startTime;
+
+    console.log(`Tempo verifica: ${verificationTime} ms`);
+    console.log("========================\n");
 
     expect(result).to.be.true;
-    console.log("Verifica zk on-chain completata con successo!");
+    console.log("✅ Verifica zk on-chain completata con successo!");
   });
 });

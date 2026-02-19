@@ -1,0 +1,36 @@
+═══════════════════════════════════════════════════════════════
+SUDOKU 4×4 - ZERO-KNOWLEDGE PROOF GENERATION REPORT
+═══════════════════════════════════════════════════════════════
+
+Data: 2026-02-03 15:00:33
+
+PARAMETRI CHIAVE (per tesi):
+─────────────────────────────────────────────────────────────
+- Tempo Generazione Proof:    .190s
+- Dimensione Proof:            7.31 KB (7488 bytes)
+
+BREAKDOWN COMPLETO:
+─────────────────────────────────────────────────────────────
+Tempi:
+  - VK generation:             .101s
+  - Verifier generation:       .005s
+  - Witness generation:        .147s
+  - Proof generation:          .190s
+  - TOTALE:                    .443s
+
+Dimensioni:
+  - Proof:                     7.31 KB
+  - Verification Key:          1.84 KB
+  - Witness (compressed):      .91 KB
+  - Verifier.sol:              97.75 KB
+
+CARATTERISTICHE CIRCUITO:
+─────────────────────────────────────────────────────────────
+  - Tipo:                      Sudoku 4×4
+  - Celle totali:              16
+  - Public inputs:             16
+  - Blocchi 2×2:               4
+  - Schema:                    UltraHonk
+  - Hash Oracle:               Keccak
+
+═══════════════════════════════════════════════════════════════

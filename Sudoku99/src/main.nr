@@ -1,4 +1,4 @@
-// Sudoku 99 Circuit
+// Sudoku 9x9 Circuito
 // Verifica che una soluzione sia valida per un dato problema
 
 fn main(

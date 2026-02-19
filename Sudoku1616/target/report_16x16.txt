@@ -2,27 +2,27 @@
 SUDOKU 16×16 - ZERO-KNOWLEDGE PROOF GENERATION REPORT
 ═══════════════════════════════════════════════════════════════
 
-Data: 2026-01-18 17:41:51
+Data: 2026-02-03 15:01:23
 
 PARAMETRI CHIAVE (per tesi):
 ─────────────────────────────────────────────────────────────
-- Tempo Generazione Proof:    .607s
+- Tempo Generazione Proof:    .562s
 - Dimensione Proof:            8.43 KB (8640 bytes)
 
 BREAKDOWN COMPLETO:
 ─────────────────────────────────────────────────────────────
 Tempi:
-  - VK generation:             .185s
-  - Verifier generation:       .005s
-  - Witness generation:        .208s
-  - Proof generation:          .607s
-  - TOTALE:                    1.005s
+  - VK generation:             .145s
+  - Verifier generation:       .004s
+  - Witness generation:        .185s
+  - Proof generation:          .562s
+  - TOTALE:                    .896s
 
 Dimensioni:
   - Proof:                     8.43 KB
   - Verification Key:          1.84 KB
   - Witness (compressed):      13.09 KB
-  - Verifier.sol:              96.17 KB
+  - Verifier.sol:              97.76 KB
 
 CARATTERISTICHE CIRCUITO:
 ─────────────────────────────────────────────────────────────
@@ -35,10 +35,3 @@ CARATTERISTICHE CIRCUITO:
   - Hash Oracle:               Keccak
 
 ═══════════════════════════════════════════════════════════════
-
-
-  HonkVerifier On-Chain Verification
-
-=== Gas Usage Report ===
-Gas per verifica proof: 4136963
-========================

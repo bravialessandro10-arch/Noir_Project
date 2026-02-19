@@ -1,0 +1,36 @@
+═══════════════════════════════════════════════════════════════
+SUDOKU 9×9 - ZERO-KNOWLEDGE PROOF GENERATION REPORT
+═══════════════════════════════════════════════════════════════
+
+Data: 2026-02-03 15:00:59
+
+PARAMETRI CHIAVE (per tesi):
+─────────────────────────────────────────────────────────────
+- Tempo Generazione Proof:    .252s
+- Dimensione Proof:            7.68 KB (7872 bytes)
+
+BREAKDOWN COMPLETO:
+─────────────────────────────────────────────────────────────
+Tempi:
+  - VK generation:             .079s
+  - Verifier generation:       .005s
+  - Witness generation:        .191s
+  - Proof generation:          .252s
+  - TOTALE:                    .527s
+
+Dimensioni:
+  - Proof:                     7.68 KB
+  - Verification Key:          1.84 KB
+  - Witness (compressed):      4.40 KB
+  - Verifier.sol:              97.75 KB
+
+CARATTERISTICHE CIRCUITO:
+─────────────────────────────────────────────────────────────
+  - Tipo:                      Sudoku 9×9
+  - Celle totali:              81
+  - Public inputs:             81
+  - Blocchi 3×3:               9
+  - Schema:                    UltraHonk
+  - Hash Oracle:               Keccak
+
+═══════════════════════════════════════════════════════════════

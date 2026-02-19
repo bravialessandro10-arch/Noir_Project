@@ -1,4 +1,4 @@
-// Sudoku 44 Circuit
+// Sudoku 4x4 Circuito
 // Verifica che una soluzione sia valida per un dato problema
 
 fn main(

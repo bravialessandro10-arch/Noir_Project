@@ -7,7 +7,7 @@ echo ""
 
 # 1. Verifica file
 if [ ! -f "target/proof" ] || [ ! -f "target/public_inputs" ]; then
-    echo "❌ File mancanti!"
+    echo " File mancanti!"
     exit 1
 fi
 
@@ -26,7 +26,7 @@ NUM_INPUTS=$((PUBLIC_INPUTS_SIZE / 32))
 echo "    Public inputs: $NUM_INPUTS elementi"
 
 if [ $NUM_INPUTS -ne 81 ]; then
-    echo "⚠️  Warning: Expected 81 inputs for 9×9, got $NUM_INPUTS"
+    echo "  Warning: 81 inputs per Sudoku 9×9, ne ho $NUM_INPUTS"
 fi
 
 # 4. Estrai valori (BIG-ENDIAN)
@@ -93,16 +93,8 @@ echo "$PROOF_HEX" > target/proof_hex.txt
 echo "$PUBLIC_INPUTS_JSON" > target/public_inputs_array.txt
 
 # 8. Output
-echo ""
-echo "════════════════════════════════════════════════════════"
-echo "✅ Parametri per verify(bytes _proof, bytes32[] _publicInputs)"
-echo "════════════════════════════════════════════════════════"
-echo ""
 echo "Proof size: $(echo "scale=2; $PROOF_SIZE / 1024" | bc) KB"
 echo "Public inputs: $NUM_INPUTS elementi (9×9 grid)"
-echo ""
-echo "Proof (primi 100 char): ${PROOF_HEX:0:100}..."
-echo ""
 echo "Files salvati:"
 echo "  - target/proof_hex.txt"
 echo "  - target/public_inputs_array.txt"

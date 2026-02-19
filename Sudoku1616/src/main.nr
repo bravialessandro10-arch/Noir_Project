@@ -1,4 +1,4 @@
-// Sudoku 16X16 Circuit
+// Sudoku 16X16 Circuito
 // Verifica che una soluzione sia valida per un dato problema
 
 fn main(

@@ -50,7 +50,7 @@ done
 # 5. Visualizza matrice (se 4×4)
 if [ $NUM_INPUTS -eq 16 ]; then
     echo ""
-    echo "📋 Matrice Sudoku 4×4:"
+    echo " Matrice Sudoku 4×4:"
     echo "    ${DECODED_VALUES[0]} ${DECODED_VALUES[1]} ${DECODED_VALUES[2]} ${DECODED_VALUES[3]}"
     echo "    ${DECODED_VALUES[4]} ${DECODED_VALUES[5]} ${DECODED_VALUES[6]} ${DECODED_VALUES[7]}"
     echo "    ${DECODED_VALUES[8]} ${DECODED_VALUES[9]} ${DECODED_VALUES[10]} ${DECODED_VALUES[11]}"
@@ -77,7 +77,7 @@ echo "$PUBLIC_INPUTS_JSON" > target/public_inputs_array.txt
 # 8. Output
 echo ""
 echo "════════════════════════════════════════════════════════"
-echo "✅ Parametri per verify(bytes _proof, bytes32[] _publicInputs)"
+echo " Parametri per verify(bytes _proof, bytes32[] _publicInputs)"
 echo "════════════════════════════════════════════════════════"
 echo ""
 echo "Proof (primi 100 char): ${PROOF_HEX:0:100}..."

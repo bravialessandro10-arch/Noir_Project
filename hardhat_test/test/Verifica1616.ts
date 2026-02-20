@@ -58,6 +58,6 @@ describe("HonkVerifier On-Chain Verification", function () {
     console.log(`Tempo verifica: ${verificationTime} ms\n`);
 
     expect(result).to.be.true;
-    console.log("✅ Verifica zk on-chain completata con successo!");
+    console.log("Verifica zk on-chain completata con successo!");
   });
 });

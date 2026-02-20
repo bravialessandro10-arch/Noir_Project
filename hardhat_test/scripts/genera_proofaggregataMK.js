@@ -23,7 +23,7 @@ function vkToFields(vk) {
 }
 
 async function main() {
-    console.log('🔄 Generating Merkle Aggregator Inputs for Prover.toml\n');
+    console.log(' Generating Merkle Aggregator Inputs for Prover.toml\n');
 
     // Initialize Barretenberg API
     console.log('[0] Initializing Barretenberg API...');
@@ -61,7 +61,7 @@ async function main() {
         { verifierTarget: 'noir-recursive' }
     );
 
-    console.log('✅ Inner proofs generated');
+    console.log(' Inner proofs generated');
     console.log(`   Depth 8 proof size: ${proofDepth8.length} bytes, public inputs: ${pubDepth8.length}`);
     console.log(`   Depth 16 proof size: ${proofDepth16.length} bytes, public inputs: ${pubDepth16.length}`);
     console.log(`   Depth 20 proof size: ${proofDepth20.length} bytes, public inputs: ${pubDepth20.length}`);
@@ -139,9 +139,9 @@ key_hash_depth20 = "${artifactsDepth20.vkHash}"
 
     const proverTomlPath = `../aggregatorMK/Prover.toml`;
     fs.writeFileSync(proverTomlPath, proverToml);
-    console.log(`✅ Prover.toml saved to ${proverTomlPath}`);
+    console.log(` Prover.toml saved to ${proverTomlPath}`);
 
-    console.log('\n✅ MERKLE AGGREGATOR INPUTS GENERATED SUCCESSFULLY!');
+    console.log('\n MERKLE AGGREGATOR INPUTS GENERATED SUCCESSFULLY!');
     console.log('\nNext steps:');
     console.log('1. cd ../aggregatorMK');
     console.log('2. nargo execute');
@@ -151,7 +151,7 @@ key_hash_depth20 = "${artifactsDepth20.vkHash}"
 }
 
 main().catch(error => {
-    console.error('\n❌ Error:', error.message);
+    console.error('\n Error:', error.message);
     console.error(error.stack);
     process.exit(1);
 });

@@ -169,7 +169,7 @@ root = "${root}"
         
         const proverPath = path.join(OUTPUT_DIR, 'Prover.toml');
         fs.writeFileSync(proverPath, proverToml);
-        console.log(`\n✅ Prover.toml generato: ${proverPath}`);
+        console.log(`\n Prover.toml generato: ${proverPath}`);
         
         const metaPath = path.join(OUTPUT_DIR, 'whitelist_metadata.json');
         fs.writeFileSync(metaPath, JSON.stringify({
@@ -189,7 +189,7 @@ root = "${root}"
         console.log('   3. nargo execute');
         
     } catch (error) {
-        console.error('\n❌ ERRORE:', error.message);
+        console.error('\n ERRORE:', error.message);
         console.error(error.stack);
         process.exit(1);
     }

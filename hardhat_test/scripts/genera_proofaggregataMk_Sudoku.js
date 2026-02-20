@@ -22,7 +22,7 @@ function vkToFields(vk) {
 }
 
 async function main() {
-    console.log('🔄 Generating FINAL Aggregator Inputs (Sudoku + Merkle) for Prover.toml\n');
+    console.log(' Generating FINAL Aggregator Inputs (Sudoku + Merkle) for Prover.toml\n');
 
     // Initialize Barretenberg API
     console.log('[0] Initializing Barretenberg API...');
@@ -43,7 +43,7 @@ async function main() {
     const circuit9x9 = JSON.parse(fs.readFileSync(`../Sudoku99/target/Sudoku99.json`, 'utf8'));
     const circuit16x16 = JSON.parse(fs.readFileSync(`../Sudoku1616/target/Sudoku1616.json`, 'utf8'));
 
-    console.log('✅ All circuits loaded');
+    console.log(' All circuits loaded');
 
     // ============================================================
     // 2. Setup backends
@@ -60,7 +60,7 @@ async function main() {
     const backend9x9 = new UltraHonkBackend(circuit9x9.bytecode, api);
     const backend16x16 = new UltraHonkBackend(circuit16x16.bytecode, api);
 
-    console.log('✅ All backends ready');
+    console.log(' All backends ready');
 
     // ============================================================
     // 3. Generate inner proofs with verifierTarget: 'noir-recursive'
@@ -105,7 +105,7 @@ async function main() {
         { verifierTarget: 'noir-recursive' }
     );
 
-    console.log('✅ All inner proofs generated');
+    console.log(' All inner proofs generated');
     console.log('\n📊 Proof sizes:');
     console.log(`   Merkle Depth 8:  ${proofDepth8.length} bytes, ${pubDepth8.length} public inputs`);
     console.log(`   Merkle Depth 16: ${proofDepth16.length} bytes, ${pubDepth16.length} public inputs`);
@@ -138,7 +138,7 @@ async function main() {
         proof16x16, pub16x16.length, { verifierTarget: 'noir-recursive' }
     );
 
-    console.log('✅ Artifacts generated');
+    console.log(' Artifacts generated');
 
     // ============================================================
     // 5. Get verification keys and convert to fields
@@ -168,7 +168,7 @@ async function main() {
     const proof9x9Fields = proofToFields(proof9x9);
     const proof16x16Fields = proofToFields(proof16x16);
 
-    console.log('✅ Conversion complete');
+    console.log(' Conversion complete');
     console.log('\n📊 Field counts:');
     console.log(`   VK Depth 8:  ${vkDepth8Fields.length} fields, Proof: ${proofDepth8Fields.length} fields`);
     console.log(`   VK Depth 16: ${vkDepth16Fields.length} fields, Proof: ${proofDepth16Fields.length} fields`);
@@ -236,7 +236,7 @@ key_hash_16x16 = "${artifacts16x16.vkHash}"
     // Save to file (modify path as needed for your aggregator directory)
     const proverTomlPath = `../aggregatorMk_Sudoku/Prover.toml`;
     fs.writeFileSync(proverTomlPath, proverToml);
-    console.log(`✅ Prover.toml saved to ${proverTomlPath}`);
+    console.log(` Prover.toml saved to ${proverTomlPath}`);
 
     // ============================================================
     // Cleanup
@@ -248,7 +248,7 @@ key_hash_16x16 = "${artifacts16x16.vkHash}"
     await backend9x9.destroy();
     await backend16x16.destroy();
 
-    console.log('\n✅ FINAL AGGREGATOR INPUTS GENERATED SUCCESSFULLY!');
+    console.log('\n FINAL AGGREGATOR INPUTS GENERATED SUCCESSFULLY!');
     console.log('\n📋 Summary:');
     console.log('   - 3 Merkle Tree proofs (Depth 8, 16, 20)');
     console.log('   - 3 Sudoku proofs (4x4, 9x9, 16x16)');
@@ -262,7 +262,7 @@ key_hash_16x16 = "${artifacts16x16.vkHash}"
 }
 
 main().catch(error => {
-    console.error('\n❌ Error:', error.message);
+    console.error('\n Error:', error.message);
     console.error(error.stack);
     process.exit(1);
 });

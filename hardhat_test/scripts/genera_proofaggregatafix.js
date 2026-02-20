@@ -23,7 +23,7 @@ function vkToFields(vk) {
 }
 
 async function main() {
-    console.log('🔄 Generating Aggregator Inputs for Prover.toml\n');
+    console.log(' Generating Aggregator Inputs for Prover.toml\n');
 
     // Initialize Barretenberg API
     console.log('[0] Initializing Barretenberg API...');
@@ -60,7 +60,7 @@ async function main() {
         { verifierTarget: 'noir-recursive' }
     );
 
-    console.log('✅ Inner proofs generated');
+    console.log(' Inner proofs generated');
     console.log(`   4x4 proof size: ${proof4x4.length} bytes, public inputs: ${pub4x4.length}`);
     console.log(`   9x9 proof size: ${proof9x9.length} bytes, public inputs: ${pub9x9.length}`);
     console.log(`   16x16 proof size: ${proof16x16.length} bytes, public inputs: ${pub16x16.length}`);
@@ -137,9 +137,9 @@ key_hash_16x16 = "${artifacts16x16.vkHash}"
 
     const proverTomlPath = `../aggregator/Prover.toml`;
     fs.writeFileSync(proverTomlPath, proverToml);
-    console.log(`✅ Prover.toml saved to ${proverTomlPath}`);
+    console.log(` Prover.toml saved to ${proverTomlPath}`);
 
-    console.log('\n✅ AGGREGATOR INPUTS GENERATED SUCCESSFULLY!');
+    console.log('\n AGGREGATOR INPUTS GENERATED SUCCESSFULLY!');
     console.log('\nNext steps:');
     console.log('1. cd /home/josh/Documents/test/NoirSudoku/aggregator');
     console.log('2. nargo execute');
@@ -149,7 +149,7 @@ key_hash_16x16 = "${artifacts16x16.vkHash}"
 }
 
 main().catch(error => {
-    console.error('\n❌ Error:', error.message);
+    console.error('\n Error:', error.message);
     console.error(error.stack);
     process.exit(1);
 });

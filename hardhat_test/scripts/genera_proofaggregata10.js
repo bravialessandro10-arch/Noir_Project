@@ -22,7 +22,7 @@ function vkToFields(vk) {
 }
 
 async function main() {
-    console.log('🔄 Generating Aggregator Inputs for 10x 4x4 Sudoku Proofs\n');
+    console.log(' Generating Aggregator Inputs for 10x 4x4 Sudoku Proofs\n');
 
     // Initialize Barretenberg API
     console.log('[0] Initializing Barretenberg API...');
@@ -67,7 +67,7 @@ async function main() {
         artifacts.push(artifact);
     }
 
-    console.log('✅ All 10 inner proofs generated');
+    console.log(' All 10 inner proofs generated');
     console.log(`   Proof size: ${proofs[0].length} bytes`);
     console.log(`   Public inputs: ${publicInputs[0].length} fields (should be 16 for 4x4)`);
 
@@ -119,9 +119,9 @@ key_hashes = ${formatArray(keyHashesArray)}
 
     const proverTomlPath = `../aggregator10/Prover.toml`;
     fs.writeFileSync(proverTomlPath, proverToml);
-    console.log(`✅ Prover.toml saved to ${proverTomlPath}`);
+    console.log(` Prover.toml saved to ${proverTomlPath}`);
 
-    console.log('\n✅ AGGREGATOR INPUTS GENERATED SUCCESSFULLY!');
+    console.log('\n AGGREGATOR INPUTS GENERATED SUCCESSFULLY!');
     console.log('\nNext steps:');
     console.log('1. cd ../aggregator');
     console.log('2. nargo execute');
@@ -132,7 +132,7 @@ key_hashes = ${formatArray(keyHashesArray)}
 }
 
 main().catch(error => {
-    console.error('\n❌ Error:', error.message);
+    console.error('\n Error:', error.message);
     console.error(error.stack);
     process.exit(1);
 });
